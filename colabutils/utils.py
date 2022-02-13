@@ -13,12 +13,15 @@ except:
 from colabutils.config import DRIVE_NAME
 
 def mount_drive():
-    drive.mount(f'/content/{DRIVE_NAME}')
+    base_path = f'/content/{DRIVE_NAME}'
+    drive.mount(base_path)
     print('Google Drive mount successful.')
+    return base_path
 
 
 def install_package_dev_mode(repo_name, requirements='requirements.txt'):
-    base_path = f'drive/{DRIVE_NAME}/{repo_name}'
+    drive_path = mount_drive()
+    base_path = os.path.join(drive_path, repo_name)
     subprocess.check_call([sys.executable, "-m", "pip", "install", f'-e {base_path}'])
     subprocess.check_call([sys.executable, '-m', 'pip', f'-r {os.path.join(base_path, requirements)}'])
 
