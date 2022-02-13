@@ -16,7 +16,7 @@ def mount_drive():
     base_path = f'/content/{DRIVE_NAME}'
     drive.mount(base_path)
     print('Google Drive mount successful.')
-    return os.path.join(base_path, 'MyDrive')
+    return os.path.join(DRIVE_NAME, 'MyDrive')
 
 
 def install_package_dev_mode(repo_name, requirements='requirements.txt'):
