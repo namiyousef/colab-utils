@@ -1,3 +1,3 @@
 from os import environ
 
-DRIVE_NAME = environ('DRIVE_NAME', 'drive')
+DRIVE_NAME = environ.get('DRIVE_NAME', 'drive')
