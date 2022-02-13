@@ -1,4 +1,6 @@
-
+import subprocess
+import sys
+import os
 # -- public imports
 try:
     from google.colab import drive
@@ -15,5 +17,8 @@ def mount_drive():
     print('Google Drive mount successful.')
 
 
-def install_package_dev_mode(repo_name, **kwargs):
-    pass
+def install_package_dev_mode(repo_name, requirements='requirements.txt'):
+    base_path = f'drive/{DRIVE_NAME}/{repo_name}'
+    subprocess.check_call([sys.executable, "-m", "pip", "install", f'-e {base_path}'])
+    subprocess.check_call([sys.executable, '-m', 'pip', f'-r {os.path.join(base_path, requirements)}'])
+
