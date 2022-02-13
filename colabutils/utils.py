@@ -24,8 +24,4 @@ def install_package_dev_mode(repo_name, requirements='requirements.txt'):
     base_path = os.path.join(drive_path, repo_name)
 
     subprocess.check_call([sys.executable, "-m", "pip", "install", '-e', base_path])
-    try:
-        subprocess.check_call([sys.executable, '-m', 'pip', '-r', os.path.join(base_path, requirements)])
-    except subprocess.CalledProcessError as e:
-        output = e.output
-        print(output)
+    subprocess.run([sys.executable, '-m', 'pip', '-r', os.path.join(base_path, requirements)])
