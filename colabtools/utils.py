@@ -2,7 +2,7 @@ import subprocess
 import sys
 import os
 from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
-
+import json
 
 # -- public imports
 try:
@@ -30,8 +30,9 @@ def install_package_dev_mode(repo_name, requirements='requirements.txt'):
 
 def install_private_library(path_to_config, repo_name):
     with open(path_to_config, 'r') as f:
-        access_token = f['access_token']
-        username = f['username']
+        github_config = json.load(f)
+        access_token = github_config['access_token']
+        username = github_config['username']
     # TODO add branch stuff, add gitlab functionality
     git_link = f'git+https://{access_token}github.com/{username}/{repo_name}.git'
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', git_link])
