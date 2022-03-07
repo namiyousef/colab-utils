@@ -28,6 +28,13 @@ def install_package_dev_mode(repo_name, requirements='requirements.txt'):
     subprocess.check_call([sys.executable, "-m", "pip", "install", '-e', base_path])
     subprocess.check_call([sys.executable, '-m', 'pip', "install", '-r', os.path.join(base_path, requirements)])
 
+def install_private_library(path_to_config, repo_name):
+    with open(path_to_config, 'r') as f:
+        access_token = f['access_token']
+        username = f['username']
+    # TODO add branch stuff, add gitlab functionality
+    git_link = f'git+https://{access_token}github.com/{username}/{repo_name}.git'
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', git_link])
 
 def get_gpu_utilization():
     nvmlInit()
