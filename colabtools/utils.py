@@ -34,8 +34,13 @@ def install_private_library(path_to_config, repo_name):
         access_token = github_config['access_token']
         username = github_config['username']
     # TODO add branch stuff, add gitlab functionality
-    git_link = f'git+https://{access_token}github.com/{username}/{repo_name}.git'
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', git_link])
+    git_link = f'git+https://{access_token}@github.com/{username}/{repo_name}.git'
+    try:
+      output = subprocess.check_output([sys.executable, '-m', 'pip', 'install', git_link])
+    except subprocess.CalledProcessError as e:
+      # TODO improve security
+      e.cmd[-1] = e.cmd[-1].replace(access_token, '****')
+      raise e
 
 def get_gpu_utilization():
     nvmlInit()
