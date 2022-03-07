@@ -1,6 +1,9 @@
 import subprocess
 import sys
 import os
+from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
+
+
 # -- public imports
 try:
     from google.colab import drive
@@ -10,7 +13,7 @@ except:
 
 
 # -- private imports
-from colabutils.config import DRIVE_NAME
+from colabtools.config import DRIVE_NAME
 
 def mount_drive():
     base_path = f'/content/{DRIVE_NAME}'
@@ -24,3 +27,10 @@ def install_package_dev_mode(repo_name, requirements='requirements.txt'):
     base_path = os.path.join(drive_path, repo_name)
     subprocess.check_call([sys.executable, "-m", "pip", "install", '-e', base_path])
     subprocess.check_call([sys.executable, '-m', 'pip', "install", '-r', os.path.join(base_path, requirements)])
+
+
+def get_gpu_utilization():
+    nvmlInit()
+    handle = nvmlDeviceGetHandleByIndex(0)
+    info = nvmlDeviceGetMemoryInfo(handle)
+    return info.used // 1024 ** 2
