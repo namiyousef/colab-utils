@@ -6,7 +6,11 @@ import json
 import torch
 
 # -- public imports
-
+try:
+    from google.colab import drive
+    print('Google Drive import successful.')
+except:
+    print('Google Drive import failed... continuing anyways...')
 
 
 # -- private imports
