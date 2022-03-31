@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='colabtools',
-    version='0.0.4',
+    version='0.0.5',
     description='Python utils package for Google Colab',
     author='Yousef Nami',
     author_email='namiyousef@hotmail.com',
