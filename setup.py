@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 #    install_requires = f.read().split()
 
 setup(
-    name='colab-utils',
+    name='colab-dev-tools',
     version='0.0.7',
     description='Python utils package for Google Colab',
     author='Yousef Nami',
