@@ -5,7 +5,7 @@ with open('requirements.txt', 'r') as f:
 
 setup(
     name='colabtools',
-    version='0.0.5',
+    version='0.0.6',
     description='Python utils package for Google Colab',
     author='Yousef Nami',
     author_email='namiyousef@hotmail.com',
