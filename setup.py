@@ -1,5 +1,8 @@
 from setuptools import setup, find_packages
 
+with open('requirements.txt', 'r') as f:
+    install_requires = f.read().split()
+
 setup(
     name='colabtools',
     version='0.0.5',
@@ -7,7 +10,7 @@ setup(
     author='Yousef Nami',
     author_email='namiyousef@hotmail.com',
     url='https://github.com/namiyousef/colab-utils',
-    install_requires=['nvidia-ml-py3', 'torch'],
+    install_requires=install_requires,
     #package_data={}
     packages=find_packages(exclude=('tests*', 'experiments*')),
     license='MIT',
