@@ -1,3 +1,2 @@
 torch
 numpy
-nvidia-ml-py3
