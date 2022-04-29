@@ -11,10 +11,6 @@ name: Upload Python Package
 on:
   release:
     types: [published]
-  push:
-    branches: [ main ]
-    tags:
-      - "v*"
 
 permissions:
   contents: read
@@ -49,6 +45,3 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          files: |
-            LICENSE.txt
-            *.jar
