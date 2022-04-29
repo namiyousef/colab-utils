@@ -12,7 +12,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='colab-dev-tools',
-    version='0.0.8',
+    version='0.0.9',
     description='Python utils package for Google Colab',
     author='Yousef Nami',
     author_email='namiyousef@hotmail.com',
