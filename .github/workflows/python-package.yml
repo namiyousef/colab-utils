@@ -46,10 +46,10 @@ jobs:
     steps:
       - uses: "namiyousef/action-kaggle-gpu-test@latest"
         with:
-          - GIT_ACCESS_TOKEN: "${{ secrets.GITHUB_READ_ONLY_ACCESS_TOKEN }}"
-          - KAGGLE_API_KEY: "${{ secrets.KAGGLE_API_KEY }}"
-          - REPO_URL: "${{ github.events.repository.url }}"
-          - REPO_NAME: "${{ github.events.repository.name }}"
+          GIT_ACCESS_TOKEN: "${{ secrets.GITHUB_READ_ONLY_ACCESS_TOKEN }}"
+          KAGGLE_API_KEY: "${{ secrets.KAGGLE_API_KEY }}"
+          REPO_URL: "${{ github.events.repository.url }}"
+          REPO_NAME: "${{ github.events.repository.name }}"
 
   pre-release:
     name: "Pre Release"
