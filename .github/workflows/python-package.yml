@@ -17,6 +17,7 @@ jobs:
         - name: test
           run: |
             git clone https://${{ secrets.GIT_READ_ONLY_ACCESS_TOKEN }}@github.com/namiyousef/colab-utils.git
+            ls colab-utils
 
 
   build:
