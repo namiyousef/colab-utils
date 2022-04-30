@@ -13,4 +13,3 @@ pip install colab-dev-tools
 ```
 
 ## Features
-d
