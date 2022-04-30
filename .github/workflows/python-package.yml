@@ -10,6 +10,15 @@ on:
     branches: [ develop ]
 
 jobs:
+  test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: test
+          run: |
+            git clone https://${{ secrets.GIT_READ_ONLY_ACCESS_TOKEN }}@github.com/namiyousef/colab-utils.git
+
+
   build:
 
     runs-on: ubuntu-latest
