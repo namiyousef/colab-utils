@@ -44,7 +44,7 @@ jobs:
   integration:
     runs-on: ubuntu-latest
     steps:
-      - uses: "namiyousef/action-kaggle-gpu-test@latest"
+      - uses: "namiyousef/action-kaggle-gpu-test@main"
         with:
           GIT_ACCESS_TOKEN: "${{ secrets.GITHUB_READ_ONLY_ACCESS_TOKEN }}"
           KAGGLE_API_KEY: "${{ secrets.KAGGLE_API_KEY }}"
