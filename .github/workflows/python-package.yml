@@ -58,7 +58,7 @@ jobs:
         with:
           git_access_token: "${{ secrets.GIT_READ_ONLY_ACCESS_TOKEN }}"
           kaggle_api_key: "${{ secrets.KAGGLE_API_KEY }}"
-          repo: "${{ github.repository }}"
+          repository_name: "${{ github.repository }}"
           
   pre-release:
     name: "Pre Release"
