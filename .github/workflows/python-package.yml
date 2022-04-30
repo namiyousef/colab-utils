@@ -58,9 +58,8 @@ jobs:
         with:
           git_access_token: "${{ secrets.GIT_READ_ONLY_ACCESS_TOKEN }}"
           kaggle_api_key: "${{ secrets.KAGGLE_API_KEY }}"
-          repo_url: "${{ github.events.repo.url }}"
-          repo_name: "${{ github.events.repo.name }}"
-
+          repo: "${{ github.repository }}"
+          
   pre-release:
     name: "Pre Release"
     runs-on: "ubuntu-latest"
