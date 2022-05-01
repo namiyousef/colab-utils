@@ -49,7 +49,7 @@ jobs:
       run: |
         python -c "print('hello')"
         python -c "import torch"
-        python -m pytest tests
+        python -m pytest tests --ignore tests/integration
 
   integration:
     runs-on: ubuntu-latest
