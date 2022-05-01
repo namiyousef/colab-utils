@@ -1,3 +1,7 @@
 import torch
+import unittest
 
-assert torch.cuda.is_available()
+class TestGPU(unittest.TestCase):
+  
+  def check_gpu_avail(self):
+      assert torch.cuda.is_available()
