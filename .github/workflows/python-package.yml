@@ -54,6 +54,7 @@ jobs:
           kaggle_api_key: "${{ secrets.KAGGLE_API_KEY }}"
           repository_name: "${{ github.repository }}"
           test_folder: tests/integration
+          python_version: "$ {{ matrix.python-version }}"
           
   pre-release:
     name: "Pre Release"
