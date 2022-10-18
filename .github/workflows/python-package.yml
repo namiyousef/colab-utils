@@ -59,7 +59,7 @@ jobs:
         kaggle_api_key: "${{ secrets.KAGGLE_API_KEY }}"
         repository_name: "${{ github.repository }}"
         test_folder: tests/integration
-        python_version: "3.10"
+        pythonversion: "3.10"
           
   pre-release:
     name: "Pre Release"
